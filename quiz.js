@@ -1,5 +1,5 @@
 
-class quizElement {
+class quizItem {
     constructor(questiontext, trueanswer, falseanswers) {
         this.questiontext = questiontext
         this.trueanswer = trueanswer
@@ -24,7 +24,7 @@ class quizElement {
     }
 }
 
-let newElement = new quizElement("To be or not to be?", "YES", ["no", "maybe", "sure", "ok"])
+let newElement = new quizItem("To be or not to be?", "YES", ["no", "maybe", "sure", "ok"])
 let n = newElement.trueposition
 
 console.log(newElement.falseanswers)
