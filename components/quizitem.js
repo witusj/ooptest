@@ -28,6 +28,7 @@ class quizItem { // The quiz item object
 
 const calculateScore = (choice, correct) => {
     const score = (choice == correct ? 1 : 0)
+    return score
     console.log(score)
 }
 
@@ -38,6 +39,7 @@ const answerOptions = newItem.shuffleArray()
 
 const QuizItem = () => {
     const [choice, setChoice] = useState(-1)
+    const [score, setScore] = useState(0)
 
     return (
         <div>
@@ -55,11 +57,12 @@ const QuizItem = () => {
                 ))}
                 <Button type="button" className="btn btn-success"
                     onClick={(event) => {
-                        calculateScore(choice, truePosition)
+                        setScore(calculateScore(choice, truePosition))
                         event.preventDefault()
                     }
                     }>Submit</Button>
             </Form>
+            <div>The score is {score}</div>
         </div>
 
     )
