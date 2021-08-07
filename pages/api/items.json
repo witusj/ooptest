@@ -1,0 +1,14 @@
+[
+    {
+        "qid": 1,
+        "text": "To be or not to be?",
+        "trueanswer": "YES",
+        "falseanswers": ["No", "Maybe", "Sure", "Ok"]
+    },
+    {
+        "qid": 1,
+        "text": "Answer to the Ultimate Question of Life, the Universe, and Everything?",
+        "trueanswer": "42",
+        "falseanswers": ["50", "Love", "Money", "Eternal bliss"]
+    }
+]
