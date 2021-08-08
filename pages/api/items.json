@@ -10,5 +10,11 @@
         "text": "Answer to the Ultimate Question of Life, the Universe, and Everything?",
         "trueanswer": "42",
         "falseanswers": ["50", "Love", "Money", "Eternal bliss"]
+    },
+    {
+        "qid": 2,
+        "text": "Where is the love?",
+        "trueanswer": "Look around",
+        "falseanswers": ["Gone", "Never existed", "Elsewhere"]
     }
 ]
