@@ -9,11 +9,18 @@ const QuizItem = (props) => {
     const options = props.options
     console.log("t1 " + scoreboard)
 
-    const calculateScore = (choice, correct, index) => { // This function determines the score 
+    const calculateScore = (choice, correct) => { // This function determines the score 
         const score = (choice == correct ? 1 : 0)
-        setScoreboard(scoreboard[index] = score)
-        console.log("t2 " + scoreboard)
-        return score
+        setScore(score)
+        return (
+            score
+        )
+    }
+
+    const refreshScoreboard = (sc, sb, i) => { // This function sets the new scoreboard
+        sb[i] = sc
+        setScoreboard(sb)
+        console.log(scoreboard)
     }
 
     return (
@@ -32,7 +39,8 @@ const QuizItem = (props) => {
                 ))}
                 <Button type="button" className="btn btn-success"
                     onClick={(event) => {
-                        setScore(calculateScore(choice, props.trueposition, props.qid))
+                        const newscore = calculateScore(choice, props.trueposition)
+                        refreshScoreboard(newscore, scoreboard, props.qid)
                         event.preventDefault() // Important! Otherwise the score will be calculated when a radio button is checked
                     }
                     }>Submit</Button>

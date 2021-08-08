@@ -55,6 +55,7 @@ export default function Home() {
       </div>
       <Button type="button" className="btn btn-success"
         onClick={(event) => {
+          console.log(scoreboard)
           setTotalscore(sumArray(scoreboard))
           event.preventDefault() // Important! Otherwise the score will be calculated when a radio button is checked
         }
