@@ -27,6 +27,9 @@ const shuffleArray = (ta, fa, tp) => { // This function creates a shuffled array
   }
 }
 
+let scorearr = new Array(items.length).fill(0);
+console.log(scorearr)
+
 const questions = items.map((item) => {
   const falselength = item.falseanswers.length
   const randomnr = (falselength + 1) * Math.random()
