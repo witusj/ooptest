@@ -16,7 +16,6 @@ const shuffleArray = (ta, fa, tp) => { // This function creates a shuffled array
   }
   arr.splice(tp, 0, ta)
 
-  console.log(arr, tp)
   return {
     arr,
     tp

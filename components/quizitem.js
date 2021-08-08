@@ -19,7 +19,6 @@ const QuizItem = (props) => {
     const updateScoreboard = (sc, sb, i) => { // This function updates the scoreboard
         sb[i] = sc
         setScoreboard(sb)
-        console.log(scoreboard)
     }
 
     return (
