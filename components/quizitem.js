@@ -1,15 +1,20 @@
 import { Form, Button } from 'react-bootstrap'
 import React, { useState } from 'react'
 
-const calculateScore = (choice, correct) => { // This function determines the score 
-    const score = (choice == correct ? 1 : 0)
-    return score
-}
 
 const QuizItem = (props) => {
     const [choice, setChoice] = useState(-1)
     const [score, setScore] = useState(0)
+    const [scoreboard, setScoreboard] = useState(props.scoreboard)
     const options = props.options
+    console.log("t1 " + scoreboard)
+
+    const calculateScore = (choice, correct, index) => { // This function determines the score 
+        const score = (choice == correct ? 1 : 0)
+        setScoreboard(scoreboard[index] = score)
+        console.log("t2 " + scoreboard)
+        return score
+    }
 
     return (
         <div key={props.qid} className="test">
@@ -27,7 +32,7 @@ const QuizItem = (props) => {
                 ))}
                 <Button type="button" className="btn btn-success"
                     onClick={(event) => {
-                        setScore(calculateScore(choice, props.trueposition))
+                        setScore(calculateScore(choice, props.trueposition, props.qid))
                         event.preventDefault() // Important! Otherwise the score will be calculated when a radio button is checked
                     }
                     }>Submit</Button>
