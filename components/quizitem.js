@@ -3,13 +3,12 @@ import React, { useState } from 'react'
 
 
 const QuizItem = (props) => {
-    const [choice, setChoice] = useState(-1)
-    const [score, setScore] = useState(0)
-    const [scoreboard, setScoreboard] = useState(props.scoreboard)
+    const [choice, setChoice] = useState(-1) // Variable and method for storing and updating the user's choice -> integer
+    const [score, setScore] = useState(0) // Variable and method for storing and updating the score of a particular quiz question -> integer
+    const [scoreboard, setScoreboard] = useState(props.scoreboard) // Variable and method for storing and updating the scoreboard
     const options = props.options
-    console.log("t1 " + scoreboard)
 
-    const calculateScore = (choice, correct) => { // This function determines the score 
+    const calculateScore = (choice, correct) => { // This function determines the score for a particular quiz question
         const score = (choice == correct ? 1 : 0)
         setScore(score)
         return (
@@ -17,7 +16,7 @@ const QuizItem = (props) => {
         )
     }
 
-    const refreshScoreboard = (sc, sb, i) => { // This function sets the new scoreboard
+    const updateScoreboard = (sc, sb, i) => { // This function updates the scoreboard
         sb[i] = sc
         setScoreboard(sb)
         console.log(scoreboard)
@@ -40,7 +39,7 @@ const QuizItem = (props) => {
                 <Button type="button" className="btn btn-success"
                     onClick={(event) => {
                         const newscore = calculateScore(choice, props.trueposition)
-                        refreshScoreboard(newscore, scoreboard, props.qid)
+                        updateScoreboard(newscore, scoreboard, props.qid)
                         event.preventDefault() // Important! Otherwise the score will be calculated when a radio button is checked
                     }
                     }>Submit</Button>

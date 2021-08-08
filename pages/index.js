@@ -3,8 +3,7 @@ import items from './api/items.json'
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 
-let scoreboard = new Array(5).fill(0)
-console.log(scoreboard)
+let scoreboard = new Array(5).fill(0) // This initializes an array in which the scores will be stored
 
 const shuffleArray = (ta, fa, tp) => { // This function creates a shuffled array of answer options. The position of the true answer is stored in the variable 'trueposition'
 
@@ -24,13 +23,13 @@ const shuffleArray = (ta, fa, tp) => { // This function creates a shuffled array
   }
 }
 
-const sumArray = (arr) => {
+const sumArray = (arr) => { // This function is used to calculate the sum of all the scores
   const reducer = (acc, curr) => acc + curr
   const totsum = arr.reduce(reducer)
   return totsum
 }
 
-const questions = items.map((item) => {
+const questions = items.map((item) => { // This variable contains the html for all the quiz questions
   const falselength = item.falseanswers.length
   const randomnr = (falselength + 1) * Math.random()
   const trueposition = Math.floor(randomnr)
@@ -47,7 +46,7 @@ const questions = items.map((item) => {
 })
 
 export default function Home() {
-  const [totalscore, setTotalscore] = useState(0)
+  const [totalscore, setTotalscore] = useState(0) // Here the variable for storing the total score and the method for updating is initialized
   return (
     <div>
       <div className="container-fluid">
@@ -55,7 +54,6 @@ export default function Home() {
       </div>
       <Button type="button" className="btn btn-success"
         onClick={(event) => {
-          console.log(scoreboard)
           setTotalscore(sumArray(scoreboard))
           event.preventDefault() // Important! Otherwise the score will be calculated when a radio button is checked
         }
