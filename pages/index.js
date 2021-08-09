@@ -28,13 +28,13 @@ const sumArray = (arr) => { // This function is used to calculate the sum of all
   return totsum
 }
 
-const questions = items.map((item) => { // This variable contains the html for all the quiz questions
+const questions = items.map((item, index) => { // This variable contains the html for all the quiz questions
   const falselength = item.falseanswers.length
   const randomnr = (falselength + 1) * Math.random()
   const trueposition = Math.floor(randomnr)
   const options = shuffleArray(item.trueanswer, item.falseanswers, trueposition)
   return (
-    <QuizItem
+    <QuizItem key={`${index}`}
       scoreboard={scoreboard}
       qid={item.qid}
       text={item.text}

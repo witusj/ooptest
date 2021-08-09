@@ -22,12 +22,12 @@ const QuizItem = (props) => {
     }
 
     return (
-        <div key={props.qid} className="test">
+        <div>
             <div className="lead">{props.text}</div>
             <div>{props.trueposition}</div>
-            <Form>
+            <Form key={`${props.qid}`}>
                 {options.map((option, index) => ( // Create the answer options and store their array index in the id of the input element
-                    <div key={index.toString()} className="form-check">
+                    <div key={`${index}`} className="form-check">
                         <input className="input form-check-input" type="radio" name={`question${props.qid}`} id={index} onChange={(e) => setChoice(e.target.id)} // If the radio button is checked the button's id is stored in the variable 'choice'
                         />
                         <label className="form-check-label" htmlFor={index}>
