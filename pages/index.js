@@ -51,7 +51,7 @@ export default function Home() {
       <div className="container-fluid">
         {questions}
       </div>
-      <Button type="button" className="btn btn-success"
+      <Button type="button" className="btn btn-primary"
         onClick={(event) => {
           setTotalscore(sumArray(scoreboard))
           event.preventDefault() // Important! Otherwise the score will be calculated when a radio button is checked

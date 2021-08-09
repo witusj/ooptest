@@ -23,7 +23,7 @@ const QuizItem = (props) => {
 
     return (
         <div>
-            <div className="lead">{props.text}</div>
+            <div className="lead alert alert-info">{props.text}</div>
             <div>{props.trueposition}</div>
             <Form key={`${props.qid}`}>
                 {options.map((option, index) => ( // Create the answer options and store their array index in the id of the input element
@@ -43,7 +43,7 @@ const QuizItem = (props) => {
                     }
                     }>Submit</Button>
             </Form>
-            <div>The score is {score}</div>
+            <div className="mt-2 mb-5">The score is {score}</div>
         </div>
 
     )
